@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimple Auto Parts | Activa & Bullet Specialists</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #004aad; /* Trustworthy Blue */
+            --secondary-color: #ff9900; /* Energetic Orange */
+            --dark-bg: #1a1a1a;
+            --light-bg: #f4f6f8;
+            --white: #ffffff;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 74, 173, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e68a00;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--dark-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Products Section */
+        .products-bg {
+            background-color: var(--white);
+        }
+
+        .product-list {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .product-list li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .contact-info, .contact-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: start;
+        }
+
+        .detail-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+            .info-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Dimple <span>Auto Parts</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Quality Spare Parts for Your Ride</h1>
+            <p>Expert solutions for Activa & Bullet motorcycles.</p>
+            <a href="#contact" class="btn">Visit Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <div class="container info-grid">
+            <div class="info-item">
+                <h3>📍 Location</h3>
+                <p>Bus Stand Road, T Point, Samana</p>
+            </div>
+            <div class="info-item">
+                <h3>🕒 Open Hours</h3>
+                <p>Mon - Sat: 9:00 AM to 8:00 PM</p>
+            </div>
+            <div class="info-item">
+                <h3>📞 Call Us</h3>
+                <p>Get genuine parts today</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Expertise</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">🛵</div>
+                    <h3>Honda Activa Parts</h3>
+                    <p>We supply a wide range of genuine and aftermarket spare parts for all Honda Activa models. From engines to body parts, we have it all.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">🏍️</div>
+                    <h3>Royal Enfield Bullet</h3>
+                    <p>Keep your Bullet running smoothly. We offer premium spare parts, engine components, and accessories for Bullet motorcycles.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Quick Installation</h3>
+                    <p>Not just parts, we also provide professional installation services to get you back on the road quickly and safely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="section products-bg">
+        <div class="container">
+            <h2 class="section-title">Popular Products</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>For Activa</h3>
+                    <ul class="product-list">
+                        <li><span>Engine Oil</span> <span>Available</span></li>
+                        <li><span>Spark Plugs</span> <span>Available</span></li>
+                        <li><span>Break Pads</span> <span>Available</span></li>
+                        <li><span>Battery</span> <span>Available</span></li>
+                        <li><span>Tyres & Tubes</span> <span>Available</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>For Bullet</h3>
+                    <ul class="product-list">
+                        <li><span>Clutch Plates</span> <span>Available</span></li>
+                        <li><span>Chain Kits</span> <span>Available</span></li>
+                        <li><span>Mirrors & Indicators</span> <span>Available</span></li>
+                        <li><span>Seat Covers</span> <span>Available</span></li>
+                        <li><span>Silencers</span> <span>Available</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Visit us at T Point for the best deals on two-wheeler parts.</p>
+                    <br>
+                    <div class="detail-item">
+                        <span class="detail-icon">📍</span>
+                        <div>
+                            <strong>Address:</strong><br>
+                            Bus Stand Road, T Point,<br>Samana
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">🕒</span>
+                        <div>
+                            <strong>Working Hours:</strong><br>
+                            Monday to Saturday<br>9:00 AM - 8:00 PM
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">📞</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +91 9872534580 , +91 9041573580
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Form -->
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form onsubmit="sendMessage(event)">
+                        <div style="margin-bottom: 15px;">
+                            <label>Name</label><br>
+                            <input type="text" style="width:100%; padding:8px; margin-top:5px;" required>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label>Phone Number</label><br>
+                            <input type="tel" style="width:100%; padding:8px; margin-top:5px;" required>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label>What part do you need?</label><br>
+                            <textarea style="width:100%; padding:8px; margin-top:5px;" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width:100%;">Send Enquiry</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Dimple Auto Parts. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            alert("Thank you! Your enquiry has been sent. We will contact you shortly.");
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>
